@@ -23,7 +23,7 @@
     "extra": {
 	     "mouf": {
 			"require-admin": [
-				"src/BaseWidgetAdmin.php
+				"src/BaseWidgetAdmin.php"
     		]
 		}
     }
