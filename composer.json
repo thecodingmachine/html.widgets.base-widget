@@ -1,6 +1,6 @@
 {
     "name": "mouf/html.widgets.base-widget",
-    "description": "This package contains the foundation of the Mouf widgets. It does not contain any component or any widget. On the other hand, it will add a menu to Mouf that will help you switch all widgets in "edit" mode. In "edit" mode, widgets in your application display an "edit" icon that will bring you directly to the Mouf edition page.",
+    "description": "This package contains the foundation of the Mouf widgets. It does not contain any component or any widget. On the other hand, it will add a menu to Mouf that will help you switch all widgets in 'edit' mode. In 'edit' mode, widgets in your application display an 'edit' icon that will bring you directly to the Mouf edition page.",
     "keywords": ["mouf", "html"],
     "homepage": "https://github.com/thecodingmachine/html.widgets.base-widget",
     "type": "mouf-library",
