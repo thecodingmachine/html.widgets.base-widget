@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+	<displayName>Base Widget</displayName>
+	<shortDescription>This package contains the foundation of the Mouf widgets. It does not contain any component
+	or any widget. On the other hand, it will add a menu to Mouf that will help you switch all widgets in "edit" mode.
+	In "edit" mode, widgets in your application display an "edit" icon that will bring you directly to the Mouf
+	edition page.</shortDescription>
+	<docUrl></docUrl>
+	<logo>logo.png</logo>
+	<requires>
+		<require>BaseWidgetUtils.php</require>
+	</requires>
+	<adminRequires>
+		<require>BaseWidgetUtils.php</require>
+		<require>BaseWidgetAdmin.php</require>
+		<require>controllers/BaseWidgetController.php</require>
+	</adminRequires>	
+</package>
