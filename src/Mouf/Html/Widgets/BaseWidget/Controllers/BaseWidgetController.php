@@ -21,6 +21,12 @@ class BaseWidgetController extends Controller {
 	 */
 	public $template;
 	
+	/**
+	 *
+	 * @var HtmlBlock
+	 */
+	public $content;
+	
 	public $isWidgetEditionMode = false;
 	
 	/**
@@ -33,8 +39,8 @@ class BaseWidgetController extends Controller {
 		if (BaseWidgetUtils::isWidgetEditionEnabled()) {
 			$this->isWidgetEditionMode = true;
 		}
-		$this->template->addContentFile(dirname(__FILE__)."/../views/enableDisableEdition.php", $this);
-		$this->template->draw();
+		$this->content->addFile(dirname(__FILE__)."/../../../../../views/enableDisableEdition.php", $this);
+		$this->template->toHtml();
 	}
 
 	/**
@@ -53,8 +59,8 @@ class BaseWidgetController extends Controller {
 			BaseWidgetUtils::disableWidgetEdition();
 		}
 
-		$this->template->addContentFile(dirname(__FILE__)."/../views/enableDisableEdition.php", $this);
-		$this->template->draw();
+		$this->content->addFile(dirname(__FILE__)."/../../../../../views/enableDisableEdition.php", $this);
+		$this->template->toHtml();
 	}
 
 }

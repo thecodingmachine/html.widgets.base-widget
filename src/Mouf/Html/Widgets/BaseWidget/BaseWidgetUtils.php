@@ -1,5 +1,7 @@
 <?php
 namespace Mouf\Html\Widgets\BaseWidget;
+use Mouf\MoufManager;
+
 /**
  * Class to enable or disable the widget edition mode for the application.
  *
@@ -12,6 +14,7 @@ class BaseWidgetUtils {
 	 *
 	 */
 	public static function enableWidgetEdition() {
+		self::sessionStart();
 		$_SESSION["WIDGET_EDITION_MODE"] = true;
 	}
 	
@@ -20,6 +23,11 @@ class BaseWidgetUtils {
 	 *
 	 */
 	public static function disableWidgetEdition() {
+		self::sessionStart();
+		$moufManager = MoufManager::getMoufManager();
+		if ($sessionManager = $moufManager->instanceExists("sessionManager")) {
+			$sessionManager->start();
+		}
 		unset($_SESSION["WIDGET_EDITION_MODE"]);
 	}
 	
@@ -29,6 +37,7 @@ class BaseWidgetUtils {
 	 * @return bool
 	 */
 	public static function isWidgetEditionEnabled() {
+		self::sessionStart();
 		if (!isset($_SESSION["WIDGET_EDITION_MODE"]))
 			return false;
 		else 
@@ -42,10 +51,21 @@ class BaseWidgetUtils {
 	 * @return string
 	 */
 	public static function getBackToParameter() {
+		self::sessionStart();
 		if ($_SERVER["REQUEST_METHOD"] != "GET") {
 			return null;
 		} else {
 			return '&backto='.urlencode($_SERVER['REQUEST_URI']);
+		}
+	}
+	
+	/**
+	 * Starts the Session if not starter already using the 'sessionManager' instance
+	 */
+	private static function sessionStart(){
+		$moufManager = MoufManager::getMoufManager();
+		if ($sessionManager = $moufManager->instanceExists("sessionManager")) {
+			$sessionManager->start();
 		}
 	}
 }
